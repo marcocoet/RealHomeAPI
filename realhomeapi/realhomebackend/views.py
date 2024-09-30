@@ -4,6 +4,8 @@ from rest_framework.response import Response
 from rest_framework import serializers
 from .models import RealEstateType
 
+ 
+
 # Create your views here.
 
 class RealEstateTypeListAPIView(APIView):
@@ -17,3 +19,4 @@ class RealEstateTypeSerializer (serializers.ModelSerializer):
     class Meta:
         model = RealEstateType
         fields =  '__all__'
+
