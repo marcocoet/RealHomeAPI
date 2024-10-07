@@ -11,7 +11,7 @@ class RealEstateType(models.Model):
         db_table = 'real_estate_types'
         managed = False
 
-class Properties(models.Model):
+class Realestate_All_Buy(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -22,5 +22,5 @@ class Properties(models.Model):
     
 
     class Meta:
-        db_table = 'properties'
+        db_table = 'allrealestatesbuy'
         managed = False
