@@ -1,5 +1,6 @@
+import django.utils.timezone
 from django.db import models
-
+import uuid
 
 class RealEstateType(models.Model):
     Id = models.UUIDField(primary_key=True)
@@ -11,16 +12,30 @@ class RealEstateType(models.Model):
         db_table = 'real_estate_types'
         managed = False
 
-class Realestate_All_Buy(models.Model):
-    title = models.CharField(max_length=200)
-    description = models.TextField()
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    address = models.CharField(max_length=255)
-    city = models.CharField(max_length=100)
-    suburb = models.CharField(max_length=100)
-    zip_code = models.CharField(max_length=10)
+class Users(models.Model):
+    Username = models.CharField(max_length=50)
+    Email = models.EmailField(max_length=50)
+    Password = models.CharField(max_length=15)
     
+    class Meta:
+        db_table = 'users'
+        managed = False
+
+class RealEstate(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
+    address = models.CharField(max_length=500)
+    bathrooms = models.IntegerField(default=0)
+    bedrooms = models.IntegerField(default=0)
+    #type_id = models.ForeignKey(RealEstateType, on_delete=models.CASCADE)
+    landSqm = models.IntegerField(default=0)
+    floorSqm = models.IntegerField(default=0)
+    parking = models.IntegerField(default=0)
+    shortDescription = models.CharField(max_length=250, default="")
+    longDescription = models.CharField(max_length=50000, default="")
+    dateCreated = models.DateTimeField(default=django.utils.timezone.now)
 
     class Meta:
-        db_table = 'allrealestatesbuy'
+        db_table = 'real_estates'
         managed = False
+
+    
