@@ -2,6 +2,7 @@ import django.utils.timezone
 from django.db import models
 import uuid
 
+
 class RealEstateType(models.Model):
     Id = models.UUIDField(primary_key=True)
     Name = models.CharField(max_length=50)
@@ -12,14 +13,18 @@ class RealEstateType(models.Model):
         db_table = 'real_estate_types'
         managed = False
 
-class Users(models.Model):
-    Username = models.CharField(max_length=50)
-    Email = models.EmailField(max_length=50)
-    Password = models.CharField(max_length=15)
+
     
-    class Meta:
-        db_table = 'users'
-        managed = False
+    
+    
+
+
+    
+
+    
+
+       
+        
 
 class RealEstate(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
@@ -38,4 +43,5 @@ class RealEstate(models.Model):
         db_table = 'real_estates'
         managed = False
 
-    
+
+
