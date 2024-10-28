@@ -1,7 +1,8 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from .models import RealEstateType
-from .models import RealEstate
+from .models import NewRealEstate
+
 
 class LoginUserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -30,11 +31,10 @@ class UsersSerializer(serializers.ModelSerializer):
         model = User
         fields =  ['email', 'username', 'password', 'confirm_password', 'first_name', 'last_name']
         
-class RealEstateAddSerializer (serializers.ModelSerializer):
+class NewRealEstateSerializer(serializers.ModelSerializer):
     class Meta:
-        model = RealEstate
-        fields =  ['address', 'bathrooms', 'bedrooms', 'landSqm',
-                   'floorSqm', 'parking', 'shortDescription', 'longDescription']
+        model = NewRealEstate
+        fields = '__all__' 
         
 class RealEstateTypeSerializer (serializers.ModelSerializer):
     class Meta:
